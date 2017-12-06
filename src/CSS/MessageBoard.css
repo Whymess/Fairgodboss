@@ -21,9 +21,5 @@
 	}
 }
 
-@media only screen and (min-width: 500px) {
-    .timestamp {
-		background-color: orange;
-	}
-}
+
 

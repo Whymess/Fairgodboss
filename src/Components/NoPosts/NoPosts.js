@@ -6,7 +6,6 @@ export default () => {
   return (
       <div className="no_posts"> 
       		There are currently no posts... add one!
-
       </div>
 
     )

@@ -2,3 +2,15 @@
 	text-align: center;
     font-size: 44px;
 }
+
+.label_for_create_post {
+	text-align: center;
+	position: relative;
+}
+
+@media only screen and (max-width: 500px) {
+	.label_create_post {
+		text-align: center;
+	}
+
+}

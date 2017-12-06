@@ -5,18 +5,18 @@ export default class CreatePost extends Component {
   render() {
     return (
       <div className="CreatePost">
-              <div className="header_create_post"> Create a new post </div>
-      	 <form>
-            <div className="form-group">
-              <label>Post Title</label>
-              <input type="text" className="form-control post_title" />
-            </div>
-            <div className="form-group">
-              <label>Message</label>
+			<div className="header_create_post"> Create a new post </div>
+
+			  <div className="form-group">
+            	 <div className="label_create_post"> Post Title</div>
+           		 <input type="text" className="form-control post_title" />
+              </div>
+			 <div className="form-group">
+              <div className="label_create_post">Message</div>
                <textarea className="form-control message_input" rows="3"></textarea>
             </div>
             <div className="form-group">
-              <label>User</label>
+              <div className="label_create_post">User</div>
               <input type="text" className="form-control user_input" />
             </div>
             
@@ -24,8 +24,8 @@ export default class CreatePost extends Component {
               <button type="submit" className="btn btn-warning"> Cancel</button>
               <button type="submit" className="btn btn-primary">Create Post</button>
             </div>
-
-          </form>
+                   
+      	
       </div>
     );
   }
