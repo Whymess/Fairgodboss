@@ -1,23 +1,19 @@
 import React, { Component } from 'react';
-import '../../CSS/landingPage.css';
+import '../../CSS/LandingPage.css';
 
-import {MessageBoard} from '../../Components/index';
+import {MessageBoard, CreatePost, NoPosts} from '../../Components/index';
 
-class LandingPage extends Component {
+export default class LandingPage extends Component {
   render() {
     return (
       <div className="LandingPage">
       		<div className="title"> The Fairgodboss Message Board </div>
-      		{/*<div className="title"> The Fairgodboss Message Board </div>
-
-
-      		<div className="main_content"> There are current no posts.... add one! </div> */}
-
-      		<MessageBoard/>
-
+		  	
+			<NoPosts/>  
+			
+			<button type="button" className="create_new_post">Create New Post</button>
       </div>
     );
   }
 }
 
-export default LandingPage;
