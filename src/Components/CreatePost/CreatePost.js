@@ -21,8 +21,8 @@ export default class CreatePost extends Component {
             </div>
             
             <div className="actions_for_create_post">
-              <button type="submit" className="btn btn-warning"> Cancel</button>
-              <button type="submit" className="btn btn-primary">Create Post</button>
+              <button type="submit" className="btn-warning cancel"> Cancel</button>
+              <button type="submit" className="btn-primary create">Create Post</button>
             </div>
                    
       	
