@@ -9,7 +9,7 @@ export default class LandingPage extends Component {
       <div className="LandingPage">
       		<div className="title"> The Fairgodboss Message Board </div>
 		  	
-			<NoPosts/>  
+		  <MessageBoard/>
 			
 			<button type="button" className="create_new_post">Create New Post</button>
       </div>
