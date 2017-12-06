@@ -1,0 +1,17 @@
+.message_container {
+	margin-top: 2%; 
+	text-align: center;
+	border: 1px solid red;
+	font-family: 'Cabin', Sans-Serif;
+	font-size: 18px;
+	width: 80%;
+	position: relative;
+	left: 10%;
+}
+
+.message_info {
+   display: flex;
+   flex-direction: row;
+   -webkit-flex-flow: column wrap;
+   justify-content: space-between;
+}
