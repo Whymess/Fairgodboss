@@ -4,13 +4,13 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 
 // local dependencies
-import {CreatePost} from '../../Components/index'
-
+import {CreatePost} from '../../Components/index';
+import {createNewPostForUser} from '../../Actions/index';
 
 const CreatePostContainer = (props) => {
   return (
     <div>	
-    	<CreatePost/>
+    	<CreatePost {...props}/>
     </div>
   );
 };
@@ -24,7 +24,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-
+	createNewPostForUser: createNewPostForUser
 }, dispatch);
 
 export default connect(

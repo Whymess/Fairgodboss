@@ -13,10 +13,17 @@ export default class CreatePost extends Component {
           user: ''
       }
 
-      this.handleChangeTitle = this.handleChangeTitle.bind(this)
-      this.handleChangeMessage = this.handleChangeMessage.bind(this)
-      this.handleChangeUser = this.handleChangeUser.bind(this)
-      this.handleSubmit = this.handleSubmit.bind(this)
+       this.initialState = {
+          title: '',
+          message:'',
+          user: ''
+      };
+
+      this.handleChangeTitle = this.handleChangeTitle.bind(this);
+      this.handleChangeMessage = this.handleChangeMessage.bind(this);
+      this.handleChangeUser = this.handleChangeUser.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+    
     }
 
   handleChangeTitle(e) {
@@ -41,10 +48,9 @@ export default class CreatePost extends Component {
       timeStamp: timestamp('YYYY/MM/DD -- HH:mm:ss')
     }
     
+    this.props.createNewPostForUser(ShadowUserObject)
+    this.setState(this.initialState);
 
-    console.log(ShadowUserObject)
-
-    
   }
 
   handleChangeMessage(e){

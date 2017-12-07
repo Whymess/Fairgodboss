@@ -1,5 +1,6 @@
 // dependencies
 import assign from 'lodash/assign';
+import {CREATE_POST} from '../../Constants/index';
 
 const IntialUserState = {
 	Users: [
@@ -31,9 +32,9 @@ const IntialUserState = {
 export default (state = IntialUserState, action) => {
 	  const { type, payload } = action;
 
-	  switch ("d") {
-	  	case "label_1":
-	  		// statements_1
+	  switch (type) {
+	  	case CREATE_POST:
+	  		console.log(payload)
 	  		return state 
 	  	default:
 	  		// statements_def
