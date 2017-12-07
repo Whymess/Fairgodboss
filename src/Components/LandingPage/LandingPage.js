@@ -6,7 +6,7 @@ import {MessageBoard, CreatePost, NoPosts, ReplyToPost} from '../../Components/i
 export default class LandingPage extends Component {
   render() {
     return (
-      <ReplyToPost/>
+      <CreatePost/>
     );
   }
 }
