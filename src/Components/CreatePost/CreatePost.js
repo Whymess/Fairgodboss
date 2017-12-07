@@ -45,7 +45,7 @@ export default class CreatePost extends Component {
       message,
       title,
       id: uuidv4(),
-      timeStamp: timestamp('YYYY/MM/DD -- HH:mm:ss')
+      timeStamp: timestamp('YYYY/MM/DD -- HH:mm:ss'),
     }
     
     this.props.createNewPostForUser(ShadowUserObject)
