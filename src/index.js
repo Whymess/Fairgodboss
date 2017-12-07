@@ -4,12 +4,12 @@ import { Provider } from 'react-redux';
 import React from 'react';
 
 // local dependencies
-import App from './Components/Application/App';
+import ApplicationContainer from './Containers/ApplicationContainer/ApplicationContainer';
 import store from './store'
 
 render(
 	<Provider store={store}>
-   		 <App />
+   		 <ApplicationContainer />
   	</Provider>,
 
   document.getElementById('root')

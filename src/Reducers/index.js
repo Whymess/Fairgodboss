@@ -2,8 +2,8 @@
 import { combineReducers } from 'redux'
 
 // local dependencies
-import Message from './Message/Message';
+import message from './Message/Message';
 
 export default combineReducers({
-  Message
+  message
 });

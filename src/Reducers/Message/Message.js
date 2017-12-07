@@ -4,13 +4,13 @@ import {CREATE_POST} from '../../Constants/index';
 
 const IntialMessageState = {
 	messages: [
-		{
-			id: '',
-			timeStamp: '',
-			UserName: '',
-			title: '',
-			Content: '',			
-		}
+		// {
+		// 	id: '',
+		// 	timeStamp: '',
+		// 	UserName: '',
+		// 	title: '',
+		// 	Content: '',			
+		// }
 
 	]
 }
