@@ -4,13 +4,13 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 
 // local dependencies
+import {CreatePost} from '../../Components/index'
 
 
-
-const Table = (props) => {
+const CreatePostContainer = (props) => {
   return (
-    <div>
-    
+    <div>	
+    	<CreatePost/>
     </div>
   );
 };
@@ -30,4 +30,4 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Table);
+)(CreatePostContainer);

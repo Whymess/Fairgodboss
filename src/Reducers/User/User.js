@@ -4,24 +4,24 @@ import assign from 'lodash/assign';
 const IntialUserState = {
 	Users: [
 		{
-			id: "Whyess",
-			posts: [
+
+			message: [
 			   {
 			   	 id: 1, 
 			     content: 'Awesome site to share',
-			     userName: 'Yoni'
+			     userName: 'Yoni',
+			     comments: [
+			     	{
+			     		userName: null,
+			     		timeStamp: null,
+			     		id: null,
+			     		title: null
+			     	}
+
+			     ]
 			   }
 			],
-			comments: [
-				{
-				  id: 1,
-				  content: '',
-				  userName: 'Jill',
-				  userName: 'great post'
-				}
-
-			]
-
+			
 		}
 
 	]
