@@ -11,7 +11,6 @@ const IntialMessageState = {
 		// 	title: '',
 		// 	Content: '',			
 		// }
-
 	]
 }
 export default (state = IntialMessageState, action) => {
