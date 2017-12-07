@@ -2,7 +2,4 @@ html body {
 	position: absolute;
 	width: 100%;
 	height: 1000px;
-	border: 1px solid green;
-	font-family: 'Cabin', Sans-Serif;
-	font-size: 18px;
 }

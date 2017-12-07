@@ -1,0 +1,61 @@
+.reply_to_PostTitle {
+	font-size: 2em;
+}
+.ReplyMain {
+	width: 80%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.Responses_title {
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+.response_body_user {
+	font-weight: bolder;
+}
+
+.reponse_body, .reply_to_post {
+	margin-left: 10%;
+}
+
+.reply_to_post {
+	margin-top: 1em;
+	width: 80%;
+}
+
+
+
+@media only screen and (max-width: 500px) {
+	.reply_to_post_button {
+		display: block;
+		margin: 0 auto;
+		margin-top: 5%;
+	}
+
+	.back_to_posts  {
+		  /*TODO*/
+		  display: block;
+		  margin: 0 auto;
+	}
+}
+
+@media only screen and (min-width: 500px) {
+	.reply_to_post_button {
+		display: inline-block;
+		left: 100%;
+	    bottom: 76px;
+	    position: relative;
+	}
+
+	.back_to_posts {
+		margin-top: 1em;
+		float:right;
+	}
+
+}
+
+
+
+
