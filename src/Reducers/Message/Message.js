@@ -6,19 +6,7 @@ import timestamp from 'time-stamp';
 
 const IntialMessageState = {
 	messages: [
-		{
-			id: uuidv1(),
-			timeStamp: timestamp('YYYY/MM/DD -- HH:mm:ss'),
-			UserName: 'Theodore Roosevelt',
-			title: 'Daily Modivation',
-			Content: 'Believe you can and you are halfway there.',
-			comments: [
-				{
-
-				}
-
-			]		
-		}
+		
 	]
 }
 export default (state = IntialMessageState, action) => {

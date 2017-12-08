@@ -2,6 +2,7 @@ import React from 'react';
 import '../../CSS/NoPosts.css';
 
 import {Title} from '../../Components/index';
+import { Link } from 'react-router-dom'
 
 export default () => {
 
@@ -16,7 +17,11 @@ export default () => {
 
 	      		
 	      </div>
-	      <button className="create_post"> Create new Post </button> 
+	      <Link to="/createPost">
+    		 <button className="create_post">
+     		    Create new Post
+     		</button>
+ 		  </Link>
      </div>
 
     )

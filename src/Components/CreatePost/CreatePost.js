@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import '../../CSS/CreatePost.css';
 import timestamp from 'time-stamp';
 import uuidv4 from 'uuid/v4'
+import { withRouter } from 'react-router-dom'
 
-
-export default class CreatePost extends Component {
+ class CreatePost extends Component {
    constructor(props){
     super(props)
       this.state = {
@@ -49,6 +49,7 @@ export default class CreatePost extends Component {
     }
     
     this.props.createNewPostForUser(ShadowUserObject)
+     this.props.history.push('/')
     this.setState(this.initialState);
 
   }
@@ -93,6 +94,6 @@ export default class CreatePost extends Component {
 }
 
 
-
+export default withRouter(CreatePost);
 
 

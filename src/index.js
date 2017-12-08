@@ -3,13 +3,27 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import React from 'react';
 
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
+
 // local dependencies
-import ApplicationContainer from './Containers/ApplicationContainer/ApplicationContainer';
-import store from './store'
+import {ApplicationContainer,CreatePostContainer} from './Containers/index';
+import store from './store';
+
+
 
 render(
 	<Provider store={store}>
-   		 <ApplicationContainer />
+      <Router>
+        <div>
+         <Route exact path="/" component={ApplicationContainer}/>
+   	      <Route path="/createPost" component={CreatePostContainer}/>
+          </div>
+       </Router>
   	</Provider>,
 
   document.getElementById('root')
