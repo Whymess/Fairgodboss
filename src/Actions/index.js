@@ -4,3 +4,11 @@ export const createNewPostForUser = (payload) => {
     payload
   }
 };
+
+
+export const addCommentsToPost = (payload) => {
+	return {
+		type: 'ADD_COMMENTS_TO_POST',
+		payload
+	}
+}

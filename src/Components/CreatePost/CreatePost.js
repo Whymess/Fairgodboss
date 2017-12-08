@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../CSS/CreatePost.css';
 import timestamp from 'time-stamp';
 import uuidv4 from 'uuid/v4'
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 
  class CreatePost extends Component {
    constructor(props){
@@ -46,6 +46,7 @@ import { withRouter } from 'react-router-dom'
       title,
       id: uuidv4(),
       timeStamp: timestamp('YYYY/MM/DD -- HH:mm:ss'),
+      comments: []
     }
     
     this.props.createNewPostForUser(ShadowUserObject)

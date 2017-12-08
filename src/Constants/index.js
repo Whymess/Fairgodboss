@@ -1,1 +1,2 @@
 export const CREATE_POST = 'CREATE_POST';
+export const ADD_COMMENTS_TO_POST = 'ADD_COMMENTS_TO_POST';

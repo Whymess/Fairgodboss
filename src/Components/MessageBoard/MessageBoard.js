@@ -5,22 +5,43 @@ import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
  class MessageBoard extends Component {
+      constructor(props){
+     super(props)
+      
+
+
+      this.addCommentsToPost = this.addCommentsToPost.bind(this);
+    
+    }
+
+    addCommentsToPost(id){
+      this.props.addCommentsToPost(id)
+          this.props.history.push('/replyToPost')
+     // call reducer 
+     // in reducer find Post
+     // Map over post and display any comments
+     // Redirect user to comments section
+
+
+
+    }
     
     render(){
       let messageArray = this.props.Messages;
 
       let messages = messageArray.map((el, i) => {
+
       return  (
          <div className="message_container" key={uuidv1()}> 
             <div className="message" > 
-              {el.title}
+                  {el.title}
             </div>
             <div className="message_info">
               <div className="poster"> 
-                {el.user}
+                By: {el.user}
               </div> 
               <div className="Comments">
-                2 Comments
+                <button onClick={() => this.addCommentsToPost(el.id)} className="comments_button"> {el.comments.length} Comments </button>
               </div>
               <div className="timestamp">
                 {el.timeStamp}
@@ -36,18 +57,12 @@ import { Link } from 'react-router-dom'
 
 
            <Link to="/createPost">
-         <button className="create_post">
-            Create new Post
-        </button>
-      </Link>
-
+             <button className="create_post">
+                Create new Post
+            </button>
+            </Link>
           </div>
       
-
-
-
-
-
         )
     }
 

@@ -11,7 +11,7 @@ import {
 } from 'react-router-dom'
 
 // local dependencies
-import {ApplicationContainer,CreatePostContainer} from './Containers/index';
+import {ApplicationContainer,CreatePostContainer, ReplyToPostContainer} from './Containers/index';
 import store from './store';
 
 
@@ -22,6 +22,7 @@ render(
         <div>
          <Route exact path="/" component={ApplicationContainer}/>
    	      <Route path="/createPost" component={CreatePostContainer}/>
+          <Route path="/replyToPost" component={ReplyToPostContainer}/>
           </div>
        </Router>
   	</Provider>,

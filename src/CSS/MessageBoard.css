@@ -14,6 +14,9 @@
    justify-content: space-between;
 }
 
+.comments_button {
+	border: none;
+}
 
 @media only screen and (max-width: 500px) {
     .timestamp {

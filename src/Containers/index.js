@@ -4,3 +4,4 @@ export { default as MessageBoardContainer } from './MessageBoardContainer/Messag
 
 export { default as ApplicationContainer } from './ApplicationContainer/ApplicationContainer';
 
+export {default as ReplyToPostContainer} from './ReplyToPostContainer/ReplyToPostContainer'
