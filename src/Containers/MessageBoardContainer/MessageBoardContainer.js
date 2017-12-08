@@ -18,7 +18,7 @@ const MessageBoardContainer = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    
+     Messages: state.message.messages
   };
 };
 

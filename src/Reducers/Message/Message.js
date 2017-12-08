@@ -1,16 +1,24 @@
 // dependencies
 import assign from 'lodash/assign';
 import {CREATE_POST} from '../../Constants/index';
+import uuidv1 from 'uuid/v1'
+import timestamp from 'time-stamp';
 
 const IntialMessageState = {
 	messages: [
-		// {
-		// 	id: '',
-		// 	timeStamp: '',
-		// 	UserName: '',
-		// 	title: '',
-		// 	Content: '',			
-		// }
+		{
+			id: uuidv1(),
+			timeStamp: timestamp('YYYY/MM/DD -- HH:mm:ss'),
+			UserName: 'Theodore Roosevelt',
+			title: 'Daily Modivation',
+			Content: 'Believe you can and you are halfway there.',
+			comments: [
+				{
+
+				}
+
+			]		
+		}
 	]
 }
 export default (state = IntialMessageState, action) => {
