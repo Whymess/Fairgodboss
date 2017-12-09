@@ -15,14 +15,9 @@ import { Link } from 'react-router-dom'
     }
 
     addCommentsToPost(id){
-      this.props.addCommentsToPost(id)
-          this.props.history.push('/replyToPost')
-     // call reducer 
-     // in reducer find Post
-     // Map over post and display any comments
-     // Redirect user to comments section
-
-
+        this.props.addMessageToReply(id)
+        this.props.addCommentsToPost()
+        this.props.history.push('/replyToPost')
 
     }
     

@@ -12,3 +12,10 @@ export const addCommentsToPost = (payload) => {
 		payload
 	}
 }
+
+export const addMessageToReply = (payload) => {
+	return {
+		type: 'ADD_MESSAGE_ID',
+		payload
+	}
+}

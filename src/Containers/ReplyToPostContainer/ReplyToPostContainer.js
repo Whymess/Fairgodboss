@@ -18,9 +18,9 @@ const ReplyToPostContainer = (props) => {
 
 
 const mapStateToProps = (state) => {
-	console.log(state, "State")
   return {
-   	  Messages: state.message.messages
+   	  Messages: state.message.messages,
+      MessageID: state.message.messageToBeRepliedToID
   };
 };
 
