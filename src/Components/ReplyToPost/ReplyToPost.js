@@ -14,7 +14,8 @@ export default class ReplyToPost extends Component {
       let messages = this.props.Messages;
       messages.map((el, i) => {
         if(el.id === this.props.MessageID){
-          console.log(this.props.MessageID)
+          let postID = this.props.MessageID
+          this.props.addCommentsToPost(postID)
         }
       })
   }
@@ -36,8 +37,6 @@ export default class ReplyToPost extends Component {
             )
         }
     })
-
-
 
     return MessageToBeRepliedTo
   }
@@ -89,7 +88,7 @@ export default class ReplyToPost extends Component {
                 <div className="form-group"></div>
                 <label>Reply User</label>
                 <input type="email" className="form-control"/>
-                 <button onClick={this.addComments()} className="reply_to_post_button"> Post Reply </button>
+                 <button onClick={() => this.addComments()} className="reply_to_post_button"> Post Reply </button>
             </div>
 
           </div>
