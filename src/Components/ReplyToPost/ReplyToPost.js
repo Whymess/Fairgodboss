@@ -22,6 +22,11 @@ export default class ReplyToPost extends Component {
         }
     })
 
+    if(MessageToBeRepliedTo.length == 0){
+       return MessageToBeRepliedTo = 'You have not selected a post to respond to!'
+    }
+
+
     return (
          <div className="ReplyMain">
             <button className="back_to_posts">Back To Posts </button>
