@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 // local dependencies
 import {ReplyToPost} from '../../Components/index';
-
+import {addCommentsToPost} from '../../Actions/index';
 
 
 const ReplyToPostContainer = (props) => {
@@ -25,7 +25,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-	
+	 addCommentsToPost: addCommentsToPost
 }, dispatch);
 
 export default connect(
