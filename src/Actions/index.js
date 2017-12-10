@@ -6,10 +6,10 @@ export const createNewPostForUser = (payload) => {
 };
 
 
-export const addCommentsToPost = (payload) => {
+export const addCommentsToPost = (payload, user,textArea) => {
 	return {
 		type: 'ADD_COMMENTS_TO_POST',
-		payload
+		payload: [payload, user,textArea]
 	}
 }
 

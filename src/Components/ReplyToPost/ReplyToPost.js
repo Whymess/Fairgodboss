@@ -1,24 +1,63 @@
 import React, { Component } from 'react';
 import '../../CSS/ReplyToPost.css';
+import uuidv1 from 'uuid/v1'
 
 export default class ReplyToPost extends Component {
     constructor(props){
       super(props)
   
-      this.addComments = this.addComments.bind(this);
+      this.state = {
+        textarea: '',
+        user: ''
+      }
 
+
+      this.userOnChange = this.userOnChange.bind(this);
+      this.textareaOnChange = this.textareaOnChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    textareaOnChange(e){
+      this.setState({
+          textarea: e.target.value
+      })
+    }
+
+    userOnChange(e){
+      this.setState({
+        user: e.target.value
+      })
     }
 
 
-  addComments(){
-      let messages = this.props.Messages;
-      messages.map((el, i) => {
-        if(el.id === this.props.MessageID){
-          let postID = this.props.MessageID
-          this.props.addCommentsToPost(postID)
-        }
-      })
+  handleSubmit(e) {
+        e.preventDefault();
+      if(this.state.user !== '' && this.state.textarea !== '' ){
+        let messages = this.props.Messages;
+        messages.map((el, i) => {
+          let {user, textarea} = this.state;
+          if(el.id === this.props.MessageID){
+            let postID = this.props.MessageID
+            this.props.addCommentsToPost(postID, user, textarea)
+          }
+        })
+
+
+      } 
+
+  
   }
+ 
+
+
+  // handleSubmit(e) {
+  //  e.preventDefault()
+  //  console.log("Hello")
+
+
+
+    
+  // }
 
 
   findCorrectMessageToReplyTo(){
@@ -77,21 +116,22 @@ export default class ReplyToPost extends Component {
               </div>
           </div>
 
-
+          <form onSubmit={this.handleSubmit}>
           <div className="reply_to_post"> 
               <div className="form-group">
                 <label>Reply Message</label>
-                <textarea className="form-control"  rows="3"></textarea>
+                <textarea onChange={this.textareaOnChange} 
+                className="form-control"  rows="3"></textarea>
             </div>
 
             <div>
                 <div className="form-group"></div>
                 <label>Reply User</label>
-                <input type="email" className="form-control"/>
-                 <button onClick={() => this.addComments()} className="reply_to_post_button"> Post Reply </button>
+                <input type="text" onChange={this.userOnChange} className="form-control"/>
+                 <button type="submit" className="reply_to_post_button"> Post Reply </button>
             </div>
-
           </div>
+          </form>
       </div>
     );
   }

@@ -11,10 +11,7 @@ export default () => {
   		<Title/>
 	      <div className="no_posts"> 
 	      		
-
 	      		There are currently no posts... add one!
-
-
 	      		
 	      </div>
 	      <Link to="/createPost">

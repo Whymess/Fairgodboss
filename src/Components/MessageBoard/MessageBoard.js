@@ -15,8 +15,7 @@ import { Link } from 'react-router-dom'
     }
 
     addCommentsToPost(id){
-        this.props.addMessageToReply(id)
-        this.props.addCommentsToPost()
+         this.props.addMessageToReply(id)
         this.props.history.push('/replyToPost')
 
     }
