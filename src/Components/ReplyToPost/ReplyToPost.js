@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../CSS/ReplyToPost.css';
-import uuidv1 from 'uuid/v1'
+import uuidv1 from 'uuid/v1';
+import { Link } from 'react-router-dom';
 
 export default class ReplyToPost extends Component {
     constructor(props){
@@ -86,7 +87,7 @@ export default class ReplyToPost extends Component {
        let commentData = particularMessagePopped.comments.map((el, i) => {
 
         return (
-             <div className="reponse_body">
+             <div className="reponse_body" key={i}>
                   <div className="response_body_user"> {el.user}  </div>
 
                   <div> {el.replyInput}</div>
@@ -117,7 +118,11 @@ export default class ReplyToPost extends Component {
 
     return (
          <div className="ReplyMain">
-            <button className="back_to_posts">Back To Posts </button>
+
+           <Link to="/">
+              <button className="back_to_posts">Back To Posts </button>
+            </Link>
+           
           <div className="post_to_be_responded_to">
                 {replyMessage}
           </div>

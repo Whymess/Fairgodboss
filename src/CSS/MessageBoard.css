@@ -16,7 +16,10 @@
 
 .comments_button {
 	border: none;
+	color: blue;
 }
+
+
 
 @media only screen and (max-width: 500px) {
     .timestamp {
