@@ -58,6 +58,7 @@ export default (state = IntialMessageState, action) => {
 			      }
 			 } catch(e){
 			      alert('Talk to the code monkey', e)
+			      return state
 
 			 }
 		break;

@@ -38,6 +38,7 @@ export default class ReplyToPost extends Component {
           let {user, textarea} = this.state;
           if(el.id === this.props.MessageID){
             let postID = this.props.MessageID
+
             this.props.addCommentsToPost(postID, user, textarea)
           }
         })
@@ -47,23 +48,12 @@ export default class ReplyToPost extends Component {
 
   
   }
- 
-
-
-  // handleSubmit(e) {
-  //  e.preventDefault()
-  //  console.log("Hello")
-
-
-
-    
-  // }
 
 
   findCorrectMessageToReplyTo(){
     let messages = this.props.Messages;
     
-    let MessageToBeRepliedTo = messages.map((el, i) => {
+    let messageToBeRepliedTo = messages.map((el, i) => {
         if(el.id === this.props.MessageID){
         return (
             <div className="post_to_be_responded_to" key={i}>
@@ -77,13 +67,46 @@ export default class ReplyToPost extends Component {
         }
     })
 
-    return MessageToBeRepliedTo
+    return messageToBeRepliedTo
+  }
+
+  getCommentsFromPostAndRender(){
+    let messageHandler  = this.props.Messages;
+    console.log(messageHandler)
+
+    let particularMessage = messageHandler.map((element, i) => {
+        if(element.id === this.props.MessageID){
+           return element
+        }
+    })
+
+    let particularMessagePopped = particularMessage.pop();
+
+    if(particularMessagePopped) {
+       let commentData = particularMessagePopped.comments.map((el, i) => {
+
+        return (
+             <div className="reponse_body">
+                  <div className="response_body_user"> {el.user}  </div>
+
+                  <div> {el.replyInput}</div>
+
+              </div>
+          )
+      })
+
+      return commentData
+    }
+  
   }
 
 
 
 
+
   render() {
+    
+    let replies = this.getCommentsFromPostAndRender()
 
     let replyMessage = this.findCorrectMessageToReplyTo()
 
@@ -102,18 +125,7 @@ export default class ReplyToPost extends Component {
           <div className="responses_to_post"> 
               <span className="Responses_title"> Responses </span>
 
-              <div className="reponse_body">
-                  <div className="response_body_user"> Yoni  </div>
-
-                  <div> Pellentesque varius elit a justo consectetur, non blandit risus ultrices. Donec laoreet mollis tortor vel fermentum. Sed commodo lorem id nisl r</div>
-
-              </div>
-               <div className="reponse_body">
-                  <div className="response_body_user"> Yoni  </div>
-
-                  <div> Pellentesque varius elit a justo consectetur, non blandit risus ultrices. Donec laoreet mollis tortor vel fermentum. Sed commodo lorem id nisl r</div>
-
-              </div>
+              {replies}
           </div>
 
           <form onSubmit={this.handleSubmit}>
