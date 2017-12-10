@@ -39,6 +39,8 @@ export default class ReplyToPost extends Component {
     }
 
 
+
+
     findCorrectCommentsAndRender(){
        let messageArrayHandler = this.props.Messages
        let handlerOnObjectWeNeed = _.find(messageArrayHandler,(object) => { 
@@ -55,9 +57,9 @@ export default class ReplyToPost extends Component {
 
               return (
                     <div className="reponse_body" key={i}>
-                        <div className="response_body_user"> {el.user}  </div>
+                        <div className="response_body_user"> By: {el.user}  </div>
 
-                        <div> {el.replyInput}</div>
+                        <div> Reply: {el.replyInput}</div>
 
                     </div>
 
@@ -105,7 +107,7 @@ export default class ReplyToPost extends Component {
              <div className="reply_to_PostTitle"> {el.title }</div> 
               <small id="emailHelp" className="form-text text-muted reply_to_PostInfo">By: {el.user}  {timestamp('YYYY/MM/DD -- HH:mm:ss')}</small>
             <div className="Reply_to_PostBody"> 
-              Message: {el.message}
+              Message To be Responded To: {el.message}
             </div>
           </div>
             )
@@ -118,14 +120,15 @@ export default class ReplyToPost extends Component {
 
   render() {
 
-
-
-
-    // if(replyMessage.length == 0){
-    //    return replyMessage = 'You have not selected a post to respond to!'
-    // }
+  
     let originalMessage = this.findCorrectMessageToReplyTo()
      let comments    =  this.findCorrectCommentsAndRender()
+
+     
+    if(originalMessage){
+      return 'You have not selected a post to respond to!'
+    }
+
 
     return (
          <div className="ReplyMain">
