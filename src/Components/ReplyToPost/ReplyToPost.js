@@ -127,7 +127,7 @@ export default class ReplyToPost extends Component {
    
     
     let originalMessage = this.findCorrectMessageToReplyTo()
-     let comments    =  this.findCorrectCommentsAndRender()
+    let comments    =  this.findCorrectCommentsAndRender()
 
 
     return (

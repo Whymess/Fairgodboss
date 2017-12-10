@@ -14,10 +14,15 @@
 
 .response_body_user {
 	font-weight: bolder;
+	color: firebrick;
 }
 
 .reponse_body, .reply_to_post {
 	margin-left: 10%;
+}
+
+.reponse_body {
+	border: 1px solid grey;
 }
 
 .reply_body {

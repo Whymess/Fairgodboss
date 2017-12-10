@@ -8,6 +8,7 @@
 }
 
 .message_info {
+   color: #F0386B;
    display: flex;
    flex-direction: row;
    -webkit-flex-flow: column wrap;
@@ -19,7 +20,10 @@
 	color: blue;
 }
 
-
+.message {
+	font-size: 3em;
+	color: #4062BB;
+}
 
 @media only screen and (max-width: 500px) {
     .timestamp {

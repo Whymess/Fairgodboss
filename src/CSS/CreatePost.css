@@ -1,11 +1,13 @@
 .header_create_post {
 	text-align: center;
     font-size: 44px;
+    color: #7678ED
 }
 
 .label_for_create_post {
 	text-align: center;
 	position: relative;
+	color: #E54B4B
 }
 
 
