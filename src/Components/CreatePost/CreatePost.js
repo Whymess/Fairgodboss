@@ -3,6 +3,7 @@ import '../../CSS/CreatePost.css';
 import timestamp from 'time-stamp';
 import uuidv4 from 'uuid/v4'
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
  class CreatePost extends Component {
    constructor(props){
@@ -85,7 +86,10 @@ import { withRouter } from 'react-router-dom';
                     value={this.state.user} onChange={this.handleChangeUser}
                     />
               <div className="actions_for_create_post">
-                <button className="btn-warning cancel"> Cancel</button>
+                 <Link to="/">
+                   <button className="btn-warning cancel"> Cancel</button>
+                 </Link>
+               
                 <button type="submit" className="btn-primary create">Create Post</button>
               </div>          
 

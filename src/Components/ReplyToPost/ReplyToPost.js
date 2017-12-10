@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../../CSS/ReplyToPost.css';
 import uuidv1 from 'uuid/v1';
 import { Link } from 'react-router-dom';
+import timestamp from 'time-stamp';
+import _ from 'lodash';
 
 export default class ReplyToPost extends Component {
     constructor(props){
@@ -9,8 +11,14 @@ export default class ReplyToPost extends Component {
   
       this.state = {
         textarea: '',
-        user: ''
+        user: '',
+        messageObject: ''
       }
+
+       this.initialState = {
+          textarea: '',
+          user:''
+      };
 
 
       this.userOnChange = this.userOnChange.bind(this);
@@ -31,8 +39,45 @@ export default class ReplyToPost extends Component {
     }
 
 
+    findCorrectCommentsAndRender(){
+       let messageArrayHandler = this.props.Messages
+       let handlerOnObjectWeNeed = _.find(messageArrayHandler,(object) => { 
+          let messageWeAreLookingFor = this.props.MessageID
+          if(object.id === messageWeAreLookingFor){
+            return object 
+          } 
+
+          return false 
+      });
+
+       if(handlerOnObjectWeNeed){
+             let returnCommentsFromMessage = handlerOnObjectWeNeed.comments.map((el, i) => {
+
+              return (
+                    <div className="reponse_body" key={i}>
+                        <div className="response_body_user"> {el.user}  </div>
+
+                        <div> {el.replyInput}</div>
+
+                    </div>
+
+                )
+               
+
+            })
+
+            return returnCommentsFromMessage
+
+       }
+
+       
+      
+     }
+
+
   handleSubmit(e) {
-        e.preventDefault();
+      e.preventDefault();
+      console.log(e.target.value)
       if(this.state.user !== '' && this.state.textarea !== '' ){
         let messages = this.props.Messages;
         messages.map((el, i) => {
@@ -47,21 +92,20 @@ export default class ReplyToPost extends Component {
 
       } 
 
-  
+     this.setState(this.initialState);
   }
 
 
   findCorrectMessageToReplyTo(){
     let messages = this.props.Messages;
-    
     let messageToBeRepliedTo = messages.map((el, i) => {
         if(el.id === this.props.MessageID){
         return (
             <div className="post_to_be_responded_to" key={i}>
              <div className="reply_to_PostTitle"> {el.title }</div> 
-              <small id="emailHelp" className="form-text text-muted reply_to_PostInfo">By: {el.user} 11/27/17</small>
+              <small id="emailHelp" className="form-text text-muted reply_to_PostInfo">By: {el.user}  {timestamp('YYYY/MM/DD -- HH:mm:ss')}</small>
             <div className="Reply_to_PostBody"> 
-              {el.message}
+              Message: {el.message}
             </div>
           </div>
             )
@@ -71,50 +115,17 @@ export default class ReplyToPost extends Component {
     return messageToBeRepliedTo
   }
 
-  getCommentsFromPostAndRender(){
-    let messageHandler  = this.props.Messages;
-    console.log(messageHandler)
-
-    let particularMessage = messageHandler.map((element, i) => {
-        if(element.id === this.props.MessageID){
-           return element
-        }
-    })
-
-    let particularMessagePopped = particularMessage.pop();
-
-    if(particularMessagePopped) {
-       let commentData = particularMessagePopped.comments.map((el, i) => {
-
-        return (
-             <div className="reponse_body" key={i}>
-                  <div className="response_body_user"> {el.user}  </div>
-
-                  <div> {el.replyInput}</div>
-
-              </div>
-          )
-      })
-
-      return commentData
-    }
-  
-  }
-
-
-
-
 
   render() {
-    
-    let replies = this.getCommentsFromPostAndRender()
 
-    let replyMessage = this.findCorrectMessageToReplyTo()
 
-    if(replyMessage.length == 0){
-       return replyMessage = 'You have not selected a post to respond to!'
-    }
 
+
+    // if(replyMessage.length == 0){
+    //    return replyMessage = 'You have not selected a post to respond to!'
+    // }
+    let originalMessage = this.findCorrectMessageToReplyTo()
+     let comments    =  this.findCorrectCommentsAndRender()
 
     return (
          <div className="ReplyMain">
@@ -124,27 +135,31 @@ export default class ReplyToPost extends Component {
             </Link>
            
           <div className="post_to_be_responded_to">
-                {replyMessage}
+                  {originalMessage}
           </div>
 
           <div className="responses_to_post"> 
-              <span className="Responses_title"> Responses </span>
-
-              {replies}
+              <span className="Responses_title"> Responses: </span>
+                  {comments}
+                
           </div>
 
           <form onSubmit={this.handleSubmit}>
           <div className="reply_to_post"> 
               <div className="form-group">
                 <label>Reply Message</label>
-                <textarea onChange={this.textareaOnChange} 
-                className="form-control"  rows="3"></textarea>
+                <input 
+                   value={this.state.textarea}
+                  onChange={this.textareaOnChange} 
+                className="form-control"/>
             </div>
 
             <div>
                 <div className="form-group"></div>
                 <label>Reply User</label>
-                <input type="text" onChange={this.userOnChange} className="form-control"/>
+                <input type="text" 
+                      value={this.state.user}
+                      onChange={this.userOnChange} className="form-control"/>
                  <button type="submit" className="reply_to_post_button"> Post Reply </button>
             </div>
           </div>

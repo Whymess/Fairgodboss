@@ -23,7 +23,7 @@ export default (state = IntialMessageState, action) => {
 	  		break;
 	  	case ADD_COMMENTS_TO_POST:
 
-	  		let arrayOfMessages = state.messages;
+	  		let arrayOfMessages = state.messages.slice();
 
 	  		let postToBeCommentedOn = _.find(arrayOfMessages, (o) => { 
 	  			let idOfMessageSelected = payload[0]
@@ -32,9 +32,8 @@ export default (state = IntialMessageState, action) => {
 
 	  		let uniqueIDofComment = postToBeCommentedOn.id
 
-	 
-	  		const index = arrayOfMessages.findIndex(item => item.id === uniqueIDofComment);
-
+	 		// Find the index of the comment 
+	  		const index = arrayOfMessages.findIndex(item => item.id === uniqueIDofComment)
 
 	  		 try {
 			    if(postToBeCommentedOn) {
@@ -46,13 +45,12 @@ export default (state = IntialMessageState, action) => {
 	  						id: uuidv1()
 	  					}
 
-	
-	  				let newArrayOfMessages = arrayOfMessages.splice(index, 0);
 	  				postToBeCommentedOn.comments.push(replyMessageToBeAppended)
-	  				newArrayOfMessages.push(postToBeCommentedOn)
-	  					
+
+					arrayOfMessages[index] = postToBeCommentedOn
+	  				
   					return assign({}, state, {
-    					messages: newArrayOfMessages
+    					messages: arrayOfMessages
  					});
 	  				
 			      }

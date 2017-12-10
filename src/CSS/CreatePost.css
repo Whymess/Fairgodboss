@@ -14,9 +14,14 @@
 		text-align: center;
 	}
 
-	.cancel, .create {
-	  margin-left: 5%;
-      display: inline-block;
+	.create {
+	     margin-left: 28%;
+         display: inline-block;
+	}
+
+	.cancel {
+		margin-right: 0%;
+		 display: inline-block;
 	}
 
 	.actions_for_create_post {
