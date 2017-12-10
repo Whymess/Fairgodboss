@@ -31,7 +31,6 @@ export default (state = IntialMessageState, action) => {
 
 	  		let uniqueIDofComment = postToBeCommentedOn.id
 
-	 		// Find the index of the comment 
 	  		const index = arrayOfMessages.findIndex(item => item.id === uniqueIDofComment)
 
 	  		 try {
@@ -61,13 +60,11 @@ export default (state = IntialMessageState, action) => {
 		break;
 
 	  	case ADD_MESSAGE_ID:
-	  		console.log("ADD_MESSAGE_ID", payload)
 	  		return assign({}, state, {
         		messageToBeRepliedToID: payload
      		 });
 
 	  	default:
-	  		// statements_def
 	  		return state ;
 	  }
 

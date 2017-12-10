@@ -77,7 +77,6 @@ export default class ReplyToPost extends Component {
 
   handleSubmit(e) {
       e.preventDefault();
-      console.log(e.target.value)
       if(this.state.user !== '' && this.state.textarea !== '' ){
         let messages = this.props.Messages;
         messages.map((el, i) => {
