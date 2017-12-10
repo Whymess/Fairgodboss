@@ -6,15 +6,12 @@ import React from 'react';
 
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 
 // local dependencies
 import {ApplicationContainer,CreatePostContainer, ReplyToPostContainer} from './Containers/index';
 import store from './store';
-
-
 
 render(
 	<Provider store={store}>
