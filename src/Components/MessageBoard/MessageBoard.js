@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import '../../CSS/MessageBoard.css';
-import uuidv1 from 'uuid/v1'
-import { withRouter } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import uuidv1 from 'uuid/v1';
+import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
  class MessageBoard extends Component {
       constructor(props){
