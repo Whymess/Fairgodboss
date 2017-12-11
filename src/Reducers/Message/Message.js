@@ -2,13 +2,15 @@
 import assign from 'lodash/assign';
 import _ from 'lodash';
 
-import {CREATE_POST, ADD_COMMENTS_TO_POST,ADD_MESSAGE_ID} from '../../Constants/index';
+import {CREATE_POST, ADD_COMMENTS_TO_POST,ADD_MESSAGE_ID, MAKE_USER_LOG_IN, MAKE_USER_LOG_OUT} from '../../Constants/index';
 import uuidv1 from 'uuid/v1'
 
 const IntialMessageState = {
 	 messages: [],
 
-	 messageToBeRepliedToID: '' 
+	 messageToBeRepliedToID: '',
+
+	 currentUser: ''
 }
 export default (state = IntialMessageState, action) => {
 	  const { type, payload } = action;
@@ -62,6 +64,18 @@ export default (state = IntialMessageState, action) => {
 	  	case ADD_MESSAGE_ID:
 	  		return assign({}, state, {
         		messageToBeRepliedToID: payload
+     		 });
+
+	  	case MAKE_USER_LOG_IN:
+	  		let {displayName} = payload
+	  		return assign({}, state, {
+        		currentUser: displayName
+     		 });
+
+
+	  	case MAKE_USER_LOG_OUT:
+	  		return assign({}, state, {
+        		currentUser: ''
      		 });
 
 	  	default:

@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 
 // local dependencies
 import {Application } from '../../Components/index';
+import {LoginUser} from '../../Actions/index';
 
 const ApplicationContainer = (props) => {
   return (
@@ -22,7 +23,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-
+    LoginUser: LoginUser
 }, dispatch);
 
 export default connect(

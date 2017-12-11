@@ -1,3 +1,5 @@
 export const CREATE_POST = 'CREATE_POST';
 export const ADD_COMMENTS_TO_POST = 'ADD_COMMENTS_TO_POST';
-export const ADD_MESSAGE_ID = 'ADD_MESSAGE_ID'
+export const ADD_MESSAGE_ID = 'ADD_MESSAGE_ID';
+export const MAKE_USER_LOG_IN = 'MAKE_USER_LOG_IN';
+export const MAKE_USER_LOG_OUT = 'MAKE_USER_LOG_OUT';

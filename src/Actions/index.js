@@ -19,3 +19,19 @@ export const addMessageToReply = (payload) => {
 		payload
 	}
 }
+
+
+export const LoginUser = (payload) => {
+	return {
+		type: 'MAKE_USER_LOG_IN',
+		payload
+	}
+}
+
+
+export const LogOutUser = (payload) => {
+	return {
+		type: 'MAKE_USER_LOG_OUT',
+		payload
+	}
+}

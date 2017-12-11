@@ -24,7 +24,8 @@ import { Link } from 'react-router-dom'
       this.handleChangeMessage = this.handleChangeMessage.bind(this);
       this.handleChangeUser = this.handleChangeUser.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
-    
+      
+      console.log(this.props)
     }
 
   handleChangeTitle(e) {
@@ -57,6 +58,8 @@ import { Link } from 'react-router-dom'
   }
 
   handleChangeMessage(e){
+       let {currentUser} = this.props
+      this.setState({user: currentUser})
       this.setState({message: e.target.value});
   }
 
@@ -65,6 +68,7 @@ import { Link } from 'react-router-dom'
   }
 
   render() {
+    let {currentUser} = this.props
     return (
       <form onSubmit={this.handleSubmit} className="CreatePost"> 
         <div className="header_create_post"> Create a new post </div>
@@ -80,11 +84,22 @@ import { Link } from 'react-router-dom'
                       value={this.state.message} onChange={this.handleChangeMessage}  
                       />
             <div className="label_create_post">User</div>
-                <input 
+            {currentUser ? 
+
+                  <div> You are currently signed as {currentUser} </div>
+                  
+            :
+
+                  <input 
                     type="text" 
                     className="form-control user_input" 
                     value={this.state.user} onChange={this.handleChangeUser}
                     />
+
+
+
+            }
+                
               <div className="actions_for_create_post">
                  <Link to="/">
                    <button className="btn-warning cancel"> Cancel</button>

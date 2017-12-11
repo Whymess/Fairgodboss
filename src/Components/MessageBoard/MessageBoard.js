@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 
       this.addCommentsToPost = this.addCommentsToPost.bind(this);
-    
+  
     }
 
     addCommentsToPost(id){

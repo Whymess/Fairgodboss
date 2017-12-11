@@ -17,9 +17,8 @@ const CreatePostContainer = (props) => {
 
 
 const mapStateToProps = (state) => {
-    
   return {
-    
+    currentUser: state.message.currentUser
   };
 };
 

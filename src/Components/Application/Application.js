@@ -16,7 +16,6 @@ export default class Application extends Component {
       user:''
     }
 
-
     this.logout = this.logout.bind(this)
 
   }
@@ -28,6 +27,8 @@ export default class Application extends Component {
       this.setState({
         user: displayName
       })
+
+      this.props.LoginUser(user)
     } 
   });
 
