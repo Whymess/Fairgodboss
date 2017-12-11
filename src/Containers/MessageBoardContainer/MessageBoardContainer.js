@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 // local dependencies
 import {MessageBoard} from '../../Components/index';
-import {addCommentsToPost, addMessageToReply} from '../../Actions/index';
+import {addCommentsToPost, addMessageToReply, LogOutUser} from '../../Actions/index';
 
 const MessageBoardContainer = (props) => {
   return (
@@ -18,13 +18,15 @@ const MessageBoardContainer = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-     Messages: state.message.messages
+     Messages: state.message.messages,
+      currentUser: state.message.currentUser
   };
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   addCommentsToPost: addCommentsToPost,
-  addMessageToReply: addMessageToReply
+  addMessageToReply: addMessageToReply,
+  LogOutUser: LogOutUser
 }, dispatch);
 
 export default connect(

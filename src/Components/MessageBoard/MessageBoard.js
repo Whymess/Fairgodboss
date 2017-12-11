@@ -3,6 +3,7 @@ import '../../CSS/MessageBoard.css';
 import uuidv1 from 'uuid/v1';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { auth, googleAuthProvider } from '../../Firebase';
 
 
  class MessageBoard extends Component {
@@ -12,7 +13,7 @@ import { Link } from 'react-router-dom';
 
 
       this.addCommentsToPost = this.addCommentsToPost.bind(this);
-  
+      this.logout = this.logout.bind(this);
     }
 
     addCommentsToPost(id){
@@ -20,10 +21,17 @@ import { Link } from 'react-router-dom';
         this.props.history.push('/replyToPost')
 
     }
+
+  logout() {
+    auth.signOut()
+      .then(() => this.props.LogOutUser());
+  }
+
     
     render(){
       let messageArray = this.props.Messages;
 
+      let {currentUser} = this.props
       let messages = messageArray.map((el, i) => {
 
       return  (
@@ -47,6 +55,7 @@ import { Link } from 'react-router-dom';
     })
 
       return(
+
         <div className="MessageBoard">
           {messages}
 
@@ -56,6 +65,17 @@ import { Link } from 'react-router-dom';
                 Create new Post
             </button>
             </Link>
+           {
+            currentUser ?
+
+              <button onClick={this.logout}> Sign Out </button>
+
+              :
+
+              <button  className="loginBtn loginBtn--google" onClick={() => auth.signInWithPopup(googleAuthProvider)}> Sign in </button>
+
+           }
+            
           </div>
       
         )
