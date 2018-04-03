@@ -6,7 +6,7 @@ export default () => {
   return (
       <div className="title"> 
 
-      		The Fairgygodboss Message Board 
+      		The Message Board 
       		
       </div>
 

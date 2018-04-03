@@ -1,12 +1,12 @@
 import firebase from 'firebase';
 
   var config = {
-    apiKey: "AIzaSyCIY-D9CiuvTaXvQ-1C5J9nLMyg1L625XM",
-    authDomain: "messageboard-541de.firebaseapp.com",
-    databaseURL: "https://messageboard-541de.firebaseio.com",
-    projectId: "messageboard-541de",
-    storageBucket: "messageboard-541de.appspot.com",
-    messagingSenderId: "1009062380695"
+     apiKey: "AIzaSyAqlf2RJRfDbLMWX4UxhvYJm9O2yVeadPw",
+    authDomain: "messageboard-128d8.firebaseapp.com",
+    databaseURL: "https://messageboard-128d8.firebaseio.com",
+    projectId: "messageboard-128d8",
+    storageBucket: "messageboard-128d8.appspot.com",
+    messagingSenderId: "995180118491"
   };
 
   
